@@ -1,10 +1,7 @@
 @import '../app.component';
 
 ion-content {
-    --background: transparent;
-    background-image: url('../../assets/developer.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    --background: white;
     height: 100%;
     overflow: auto;
     opacity: 0;
@@ -26,27 +23,18 @@ ul {
 
     li {
         width: 90%;
-        margin: 20px auto;
-        color: white;
-        background-color: black;
-        padding: 20px;
-        border-radius: 5px;
-    }
-
-    h2 {
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: $dark-green;
-        line-height: 1.7;
-    }
-
-    p {
+        margin: 0px auto;
         font-size: 14px;
-        line-height: 1.7;
+        color: $dark-grey;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid #cecece;
+        padding: 20px 0;
 
-        a {
-            color: white;
-            font-weight: bold;
+        ion-icon {
+            font-size: 24px;
+            margin-right: 10px;
         }
     }
 }

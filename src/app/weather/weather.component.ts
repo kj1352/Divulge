@@ -19,12 +19,16 @@ export class WeatherComponent implements OnInit {
         if (localStorage.getItem('weatherForecast')) {
             this.weatherForecast = JSON.parse(localStorage.getItem('weatherForecast'));
         } else {
-            this.getLocation();
+            this.getCityData('Bangalore');
         }
     }
 
-    getCityData() {
-        this.weatherService.getWeatherByCity(this.searchTerm).then((resp) => {
+    getCityData(searchTerm?: string) {
+        let text: string;
+
+        searchTerm? text = searchTerm : text = this.searchTerm;
+
+        this.weatherService.getWeatherByCity(text).then((resp) => {
             this.weatherForecast = resp;
             localStorage.weatherForecast = JSON.stringify(this.weatherForecast);
         }, (err) => {

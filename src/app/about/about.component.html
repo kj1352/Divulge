@@ -1,44 +1,28 @@
 <ion-content>
     <ul>
-        <li>
-            <h2> FAQs </h2>
-        </li>
-        <li>
-            <h2> What is this app? </h2>
-            <p> Simple Weather + News app </p>
+        <li (click)="openURL('http://divulge.webtrigon.com/')">
+            <ion-icon name="globe-outline"></ion-icon>
+            Divulge Website
         </li>
 
-        <li>
-            <h2> How is different from the other apps in the market? </h2>
-            <p>
-                I did it for my personal use as a mini project, so I don't care
-                if you use it or not.
-            </p>
+        <li (click)="openURL('https://play.google.com/store/apps/details?id=ionic.divulge.release')">
+            <ion-icon name="star-outline"></ion-icon>
+            Rate Us
         </li>
 
-        <li>
-            <h2> What about updates </h2>
-            <p>
-                As this is a PWA, your updates will be one reload away which you
-                can do manually ;)
-            </p>
+        <li (click)="openURL('mailto:kj@webtrigon.com')">
+            <ion-icon name="mail-outline"></ion-icon>
+            Contact Us
         </li>
 
-        <li>
-            <h2> I'm a geek and interested in this project, I need some info... </h2>
-            <p>
-                This is an angular 8 project with ionic module support for icons and few of the UI stuff,
-                The APIs used are
-                <a href="https://openweathermap.org/api" target="_blank">
-                    Open weather
-                </a> &amp;
-                <a href="https://newsapi.org/" target="_blank"> NewsAPI.org </a>.
-            </p>
+        <li (click)="shareApp()">
+            <ion-icon name="share-social-outline"></ion-icon>
+            Share the app
+        </li>
 
-            <p>
-                This is a open source project and you're free to
-                <a href="https://github.com/kj1352/Singularity" target="_blank"> contribute or fork it </a>.
-            </p>
+        <li (click)="openURL('https://github.com/kj1352/Divulge')">
+            <ion-icon name="logo-github"></ion-icon>
+            Contribute
         </li>
     </ul>
 </ion-content>
