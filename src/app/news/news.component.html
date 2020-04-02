@@ -1,0 +1,22 @@
+<ion-content *ngIf="headlines">
+    <button class="refresh-button" (click)="getNews()">
+        <ion-icon name="refresh-outline"></ion-icon>
+        Refresh (Last update: {{ getFormattedDate(headlines.time, 'DD MMM @ hh:mm a') }})
+    </button>
+
+    <p class="attribution">
+        Powered by <a href="https://newsapi.org/" target="_blank"> NewsAPI.org </a>
+    </p>
+
+    <ul>
+        <li *ngFor="let article of headlines.news" (click)="openNews(article.url)">
+            <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+            <img src="assets/sky.jpeg" *ngIf="!article.urlToImage">
+            <div class="container">
+                <h2> {{ article.title }} </h2>
+                <p> {{ article.description }} </p>
+                <p> {{ getFormattedDate(article.publishedAt, 'DD MM hh:mm a') }} </p>
+            </div>
+        </li>
+    </ul>
+</ion-content>

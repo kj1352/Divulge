@@ -1,0 +1,37 @@
+<ion-content>
+    <div class="input-holder">
+        <input type="text" placeholder="Search for other cities"
+        [(ngModel)]="searchTerm">
+        <button (click)="getCityData()"> <ion-icon name="search"></ion-icon> </button>
+    </div>
+
+    <button class="location-button" (click)="getLocation()">
+        <ion-icon name="locate-outline"></ion-icon> Detect my location
+    </button>
+
+    <ul *ngIf="weatherForecast">
+        <li>
+            <h2> {{ weatherForecast.city.name }} </h2>
+            <p> <ion-icon name="sunny-outline"></ion-icon> {{ getFormattedDate(weatherForecast.city.sunrise, 'hh:mm a') }} </p>
+            <p> <ion-icon name="moon-outline"></ion-icon> {{ getFormattedDate(weatherForecast.city.sunset, 'hh:mm a') }} </p>
+            <p> Population: {{ weatherForecast.city.population }} </p>
+        </li>
+        <li [ngClass]="{'hot': weather.main.temp > 25,
+            'warm': weather.main.temp > 20 && weather.main.temp < 25,
+            'cool': weather.main.temp > 18 && weather.main.temp < 20,
+            'cold': weather.main.temp < 18,
+            'hidden': isInvalidDate(weather.dt) }"
+            *ngFor="let weather of weatherForecast.list">
+            <h2> {{ weather.main.temp }} °C, {{ weather.weather[0].main }} </h2>
+            <p> {{ getFormattedDate(weather.dt, 'DD MMM @ hh:mm a') }} </p>
+            <p> Feels Like: {{ weather.main.feels_like }} °C </p>
+            <p> Max: {{ weather.main.temp_max }} °C, Min: {{ weather.main.temp_min }} °C </p>
+            <p> Humidity: {{ weather.main.humidity }} </p>
+        </li>
+    </ul>
+
+    <button class="location-button" (click)="getLocation()">
+        Get Next 5 Day's weather
+    </button>
+
+</ion-content>

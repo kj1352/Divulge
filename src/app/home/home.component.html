@@ -1,0 +1,26 @@
+<div class="container">
+    <app-weather *ngIf="selectedTab === 'weather'"></app-weather>
+    <app-news *ngIf="selectedTab === 'news'"></app-news>
+    <app-about *ngIf="selectedTab === 'about'"></app-about>
+</div>
+
+
+<section class="custom-tabs" [ngClass]="{'weather' : selectedTab === 'weather',
+    'news': selectedTab === 'news', 'about' : selectedTab === 'about'}">
+
+    <button (click)="navigateToUrl('weather')"
+    [ngClass]="{'active' : selectedTab === 'weather'}">
+        <ion-icon name="cloudy-night-outline"></ion-icon>
+    </button>
+
+    <button (click)="navigateToUrl('news')"
+    [ngClass]="{'active' : selectedTab === 'news'}">
+        <ion-icon name="newspaper-outline"></ion-icon>
+    </button>
+
+    <button (click)="navigateToUrl('about')"
+    [ngClass]="{'active' : selectedTab === 'about'}">
+        <ion-icon name="information-circle-outline"></ion-icon>
+    </button>
+
+</section>
